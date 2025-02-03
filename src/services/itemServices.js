@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3000/api';
+// const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://restaurant-backend-0kci.onrender.com/api';
 
 // services/itemService.js
 export const itemService = {
