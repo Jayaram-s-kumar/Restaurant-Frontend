@@ -1,0 +1,183 @@
+// BrunchMenu.scss
+.brunch-menu {
+    min-height: 100vh;
+    background-color: #000000;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    width: 100%;
+
+    .menu-container {
+        position: relative;
+        max-width: 1200px;
+        width: 100%;
+        background-color: rgba(17, 17, 17, 0.95);
+        padding: 4rem 3rem;
+        border: 2px solid rgb(255, 255, 255);
+    }
+
+    .decorative-image-top {
+        position: absolute;
+        top: -176px;
+        left: -33px;
+        @media (max-width:500px) {
+            top: -110px;
+        }
+        img {
+            width: 200px;
+            height: auto;
+
+            @media (max-width:800px) {
+                width: 150px;
+            }
+
+            @media (max-width:500px) {
+                width: 110px;
+            }
+        }
+    }
+
+    .decorative-image-bottom {
+        position: absolute;
+        bottom: -133px;
+        right: -13px;
+
+        img {
+            width: 210px;
+            height: auto;
+
+            @media (max-width:800px) {
+                // width: 150px;
+                display: none;
+            }
+        }
+    }
+
+    .menu-title {
+        text-align: center;
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        margin: 2rem 0 4rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        font-size: clamp(1rem, 9vw, 3rem);
+
+
+        .line-left,
+        .line-right {
+            width: 60px;
+            height: 2px;
+            background-color: white;
+        }
+    }
+
+    .menu-items {
+        display: flex;
+        gap: 2.5rem;
+        max-width: 900px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+
+        @media (max-width:860px) {
+            flex-direction: column;
+        }
+    }
+
+    .menu-item {
+        color: white;
+        width: 45%;
+        @media (max-width:860px) {
+            width: 100%;
+        }
+
+        .item-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+
+            h2 {
+                font-size: 1.25rem;
+                font-weight: bold;
+                letter-spacing: 0.05em;
+                white-space: nowrap;
+            }
+
+            .dots {
+                flex: 1;
+                border-bottom: 2px dotted rgba(255, 255, 255, 0.2);
+                margin: 0 1rem;
+                height: 1px;
+            }
+
+            .price {
+                font-size: 1.25rem;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+        }
+
+        .description {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            font-family: monospace;
+        }
+    }
+}
+
+// Media Queries for Responsiveness
+@media screen and (max-width: 968px) {
+    .brunch-menu {
+        padding: 1rem;
+
+        .menu-container {
+            padding: 3rem 2rem;
+        }
+
+        .menu-title {
+            font-size: 2rem;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brunch-menu {
+        .menu-title {
+            font-size: 1.6rem;
+
+            .line-left,
+            .line-right {
+                width: 40px;
+            }
+        }
+
+        .menu-item .item-header {
+            flex-wrap: wrap;
+
+            h2 {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            // .dots1 {
+            //     order: 2;
+            //     margin: 0 0.5rem;
+            //     flex: 1 !important;
+            //     border-bottom: 4px dotted rgb(255 255 255) !important;
+            //     margin: 0 1rem !important;
+            //     height: 4px !important;
+            // }
+
+            .price {
+                order: 3;
+            }
+        }
+    }
+}

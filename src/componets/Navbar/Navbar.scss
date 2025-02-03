@@ -1,0 +1,71 @@
+.navbar {
+    background: black !important;
+    position: relative;
+    margin-bottom: 25px;
+
+    a{
+        text-decoration: none !important;
+    }
+
+    .navbar-nav{
+        @media (max-width:990px) {
+            margin-top: 10%;
+        }
+    }
+
+    
+
+    .logo-cont {
+        position: absolute;
+        display: flex;
+        top: 0px;
+
+        .dnslogo {
+            width: 95px;
+            height: 95px;
+            top: 0px;
+
+            @media (max-width:900px) {
+                width: 80px;
+                height: 80px;
+            }
+
+            @media (max-width:770px) {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        .logo-title {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+
+            h1 {
+                color: gray;
+                font-size: clamp(1.3rem, 2.5vw, 3.5rem);
+                margin: 0px;
+            }
+
+            h1:nth-child(1) {
+                color: blue;
+
+                span {
+                    color: white;
+                }
+            }
+
+        }
+    }
+
+
+
+    .nav-link {
+        color: white !important;
+    }
+
+    .nav-link:active {
+        color: blue !important;
+    }
+}
