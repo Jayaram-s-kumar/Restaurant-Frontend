@@ -35,7 +35,7 @@ const Home = () => {
         setSelectedMenu(menu);
     };
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <div style={{color:'white'}}>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
     return (
