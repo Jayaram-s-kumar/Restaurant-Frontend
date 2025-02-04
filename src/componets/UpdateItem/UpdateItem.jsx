@@ -20,14 +20,11 @@ const UpdateItem = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch menus and current item details
     const fetchData = async () => {
       try {
-        // Fetch all menus for dropdown
         const menuList = await menuService.getAllMenus();
         setMenus(menuList);
 
-        // Fetch current item details
         const itemDetails = await itemService.getItemById(id);
         setFormData({
           name: itemDetails.name,
@@ -58,16 +55,13 @@ const UpdateItem = () => {
     setError('');
 
     try {
-      // Convert price to float
       const itemData = {
         ...formData,
         price: parseFloat(formData.price)
       };
 
-      // Update item
       await itemService.updateItem(id, itemData);
       
-      // Navigate back to items list or menu items
       navigate(`/menus/items/${formData.menuId}`);
     } catch (err) {
       setError(err.message);

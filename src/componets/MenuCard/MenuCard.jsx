@@ -2,17 +2,16 @@ import React from 'react'
 import './MenuCard.scss'
 
 const MenuCard = ({ menu }) => {
-    // If no menu or no items, show a message
     if (!menu || !menu.items || menu.items.length === 0) {
         return (
             <div className="brunch-menu">
                 <div className="menu-container">
                     <h1 className="menu-title">
                         <span className="line-left"></span>
-                        {menu ? menu.name : 'Menu'} 
+                        {menu ? menu.description : 'Menu'} 
                         <span className="line-right"></span>
                     </h1>
-                    <p className="text-center">No items available in this menu.</p>
+                    <p className="text-center" style={{color:'wheat'}}>No items available in this menu.</p>
                 </div>
             </div>
         );

@@ -3,14 +3,15 @@ import './Navbar.scss'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const RestaurantNavbar = () => {
     const [expanded, setExpanded] = useState(false);
+    const [activeNav, setActiveNav] = useState('HOME');
 
-    const handleNavItemClick = () => {
-        // Close the navbar on mobile when an item is clicked
+    const handleNavItemClick = (itemName) => {
         setExpanded(false);
+        setActiveNav(itemName);
     };
 
     return (
@@ -37,21 +38,38 @@ const RestaurantNavbar = () => {
                     />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Link to={'/'} onClick={handleNavItemClick}>
-                                <Nav.Link as="div">HOME</Nav.Link>
-                            </Link>
-                            <Nav.Link as="div" onClick={handleNavItemClick}>
+                            <NavLink 
+                                to={'/'} 
+                                onClick={() => handleNavItemClick('HOME')}
+                                className={activeNav === 'HOME' ? 'active-nav-link' : 'nav-link'}
+                            >
+                                HOME
+                            </NavLink>
+                            <Nav.Link 
+                                onClick={() => handleNavItemClick('MENU')}
+                                className={activeNav === 'MENU' ? 'active-nav-link' : 'nav-link'}
+                            >
                                 MENU
                             </Nav.Link>
-                            <Nav.Link as="div" onClick={handleNavItemClick}>
+                            <Nav.Link 
+                                onClick={() => handleNavItemClick('RESERVATION')}
+                                className={activeNav === 'RESERVATION' ? 'active-nav-link' : 'nav-link'}
+                            >
                                 MAKE A RESERVATION
                             </Nav.Link>
-                            <Nav.Link as="div" onClick={handleNavItemClick}>
+                            <Nav.Link 
+                                onClick={() => handleNavItemClick('CONTACT')}
+                                className={activeNav === 'CONTACT' ? 'active-nav-link' : 'nav-link'}
+                            >
                                 CONTACT US
                             </Nav.Link>
-                            <Link to={'/admin'} onClick={handleNavItemClick}>
-                                <Nav.Link as="div">ADMIN</Nav.Link>
-                            </Link>
+                            <NavLink 
+                                to={'/admin'} 
+                                onClick={() => handleNavItemClick('ADMIN')}
+                                className={activeNav === 'ADMIN' ? 'active-nav-link' : 'nav-link'}
+                            >
+                                ADMIN
+                            </NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

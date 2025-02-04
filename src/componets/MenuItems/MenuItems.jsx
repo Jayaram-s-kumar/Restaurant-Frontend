@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button, Alert, Modal } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
 import { itemService } from '../../services/itemServices';
-import { menuService } from '../../services/menuServices'; // Import menu service
+import { menuService } from '../../services/menuServices'; 
 
 const MenuItems = () => {
     const { menuId } = useParams();
@@ -22,11 +22,8 @@ const MenuItems = () => {
     const loadMenuAndItems = async () => {
         try {
             setLoading(true);
-            // Fetch menu details
             const menuResponse = await menuService.getMenuById(menuId);
             setCurrentMenu(menuResponse);
-
-            // Fetch items for this menu
             const itemsResponse = await itemService.getItemsByMenu(menuId);
             setItems(itemsResponse);
         } catch (err) {
@@ -78,12 +75,10 @@ const MenuItems = () => {
     return (
         <Container className="mt-4">
             <>
-                {/* Display current menu name */}
                 {currentMenu && (
                     <h1 className="text-center mb-4">{currentMenu.name}</h1>
                 )}
 
-                {/* Optional: Display menu description */}
                 {currentMenu && currentMenu.description && (
                     <h4 className='text-center' style={{color:'white'}}>{currentMenu.description}</h4>
                 )}
@@ -146,13 +141,12 @@ const MenuItems = () => {
                     </Button>
                 </div>
 
-                {/* Delete Confirmation Modal */}
                 <Modal show={showDeleteModal} onHide={handleCloseDeleteModal}>
                     <Modal.Header closeButton>
                         <Modal.Title>Confirm Delete</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        Are you sure you want to delete this item? This action cannot be undone.
+                        Are you sure you want to delete this item? 
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleCloseDeleteModal}>

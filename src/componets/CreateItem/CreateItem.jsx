@@ -5,14 +5,14 @@ import { itemService } from '../../services/itemServices';
 import { menuService } from '../../services/menuServices';
 
 const CreateItem = () => {
-  const { menuId } = useParams(); // Optional: pre-select menu if coming from a specific menu
+  const { menuId } = useParams(); 
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: '',
     description: '',
     price: '',
-    menuId: menuId || '' // Use menuId from URL if available
+    menuId: menuId || '' 
   });
 
   const [menus, setMenus] = useState([]);
@@ -20,7 +20,6 @@ const CreateItem = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch all menus for dropdown
     const fetchMenus = async () => {
       try {
         const menuList = await menuService.getAllMenus();
@@ -48,16 +47,13 @@ const CreateItem = () => {
     setError('');
 
     try {
-      // Prepare item data
       const itemData = {
         ...formData,
         price: parseFloat(formData.price)
       };
 
-      // Create item
       const newItem = await itemService.createItem(itemData);
 
-      // Navigate back to items list or specific menu items
       navigate(`/menu/items/${formData.menuId}`);
     } catch (err) {
       setError(err.message);
@@ -68,7 +64,7 @@ const CreateItem = () => {
     return <Container className="text-center mt-4">Loading...</Container>;
   }
 
-  //Here I want to take the current menu name.how?
+
   const currentMenuName = (menus.find(menu => menu.id.toString() === menuId)).name
 
 

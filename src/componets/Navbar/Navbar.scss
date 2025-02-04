@@ -3,17 +3,17 @@
     position: relative;
     margin-bottom: 25px;
 
-    a{
+    a {
         text-decoration: none !important;
     }
 
-    .navbar-nav{
+    .navbar-nav {
         @media (max-width:990px) {
             margin-top: 10%;
         }
     }
 
-    
+
 
     .logo-cont {
         position: absolute;
@@ -65,7 +65,12 @@
         color: white !important;
     }
 
-    .nav-link:active {
+    .active-nav-link {
         color: blue !important;
+        font-weight: bold;
+
+        @media (min-width:990px) {
+            margin: auto;
+        }
     }
 }

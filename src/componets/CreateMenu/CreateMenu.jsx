@@ -28,7 +28,7 @@ const CreateMenu = () => {
 
     try {
       await menuService.createMenu(formData);
-      navigate('/admin'); // Redirect to menus list after successful creation
+      navigate('/admin'); 
     } catch (err) {
       setError(err.response?.data?.error || 'Something went wrong!');
     } finally {

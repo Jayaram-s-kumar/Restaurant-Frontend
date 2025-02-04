@@ -85,13 +85,12 @@ const MenuList = () => {
             <Link to="/menus/create" className="btn btn-primary mb-3 ]">Create New Menu</Link>
 
 
-            {/* Delete Confirmation Modal */}
             <Modal show={showDeleteModal} onHide={handleCloseDeleteModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Confirm Delete</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Are you sure you want to delete this menu? This action cannot be undone.
+                    Are you sure you want to delete this menu? All items in this menu will be deleted.
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseDeleteModal}>

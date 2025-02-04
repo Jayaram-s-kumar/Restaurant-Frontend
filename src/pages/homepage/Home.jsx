@@ -16,7 +16,6 @@ const Home = () => {
                 const menuList = await menuService.getAllMenus();
                 setMenus(menuList);
                 
-                // Set the first menu as default if available
                 if (menuList.length > 0) {
                     setSelectedMenu(menuList[0]);
                 }
@@ -35,7 +34,7 @@ const Home = () => {
         setSelectedMenu(menu);
     };
 
-    if (loading) return <div style={{color:'white'}}>Loading...</div>;
+    if (loading) return <div style={{color:'white',textAlign:'center',marginTop:'100px'}}>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
     return (
